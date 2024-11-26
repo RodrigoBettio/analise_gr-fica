@@ -34,14 +34,16 @@ def obter_dados_acoes(acao, data_inicial, data_final, intervalo):
             raise ValueError("Nenhum dado encontrado para o período especificado.")
         
         if intervalo == 'ano':
-            dados_intervalo = dados.resample('A').last() 
-        else:
-            dados_intervalo = dados.resample('M').last() 
+            dados_intervalo = dados.resample('A').last()  # Dados anuais
+        elif intervalo == 'mes':
+            dados_intervalo = dados.resample('M').last()  # Dados mensais
+        else:  # Dados diários
+            dados_intervalo = dados 
 
 
         # Gerar gráfico
         fig, ax = plt.subplots(figsize=(10, 6))
-        ax.plot(dados_intervalo.index, dados_intervalo['Close'], marker='o', linestyle='-', color='b')
+        ax.plot(dados_intervalo.index, dados_intervalo['Close'], linestyle='-', color='b')
         configurar_eixo_temporal(ax, dados, intervalo)
         
         ax.set_title(f"Gráfico da Ação {acao}")
@@ -71,13 +73,15 @@ def obter_dados_commoditys(commodity, data_inicial, data_final, intervalo):
             raise ValueError("Nenhum dado encontrado para o período especificado.")
 
         if intervalo == 'ano':
-            dados_intervalo = dados.resample('A').last()
-        else:
-            dados_intervalo = dados.resample('M').last()
+            dados_intervalo = dados.resample('A').last()  # Dados anuais
+        elif intervalo == 'mes':
+            dados_intervalo = dados.resample('M').last()  # Dados mensais
+        else:  # Dados diários
+            dados_intervalo = dados 
 
         # Gerar gráfico
         fig, ax = plt.subplots(figsize=(10, 6))
-        ax.plot(dados_intervalo.index, dados_intervalo['Close'], marker='o', linestyle='-', color='g')
+        ax.plot(dados_intervalo.index, dados_intervalo['Close'], linestyle='-', color='g')
         configurar_eixo_temporal(ax, dados, intervalo)
 
         ax.set_title(f"Gráfico da Commodity {commodity}")
