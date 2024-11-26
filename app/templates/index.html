@@ -86,10 +86,10 @@
                         <div class="mb-3">
                             <label for="acao" class="form-label">Selecione uma ação:</label>
                             <select name="acao" id="acao" class="form-select">
-                                <option value="PETR4">PETR4 - Petrobras</option>
-                                <option value="VALE3">VALE3 - Vale</option>
-                                <option value="ITUB4">ITUB4 - Itaú Unibanco</option>
-                                <option value="BBDC4">BBDC4 - Bradesco</option>
+                                <option value="PETR4.SA">PETR4 - Petrobras</option>
+                                <option value="VALE3.SA">VALE3 - Vale</option>
+                                <option value="ITUB4.SA">ITUB4 - Itaú Unibanco</option>
+                                <option value="BBDC4.SA">BBDC4 - Bradesco</option>
                             </select>
                         </div>
                     </div>
@@ -103,10 +103,10 @@
                         <div class="mb-3">
                             <label for="commodity" class="form-label">Selecione uma commodity:</label>
                             <select name="commodity" id="commodity" class="form-select">
-                                <option value="Ouro">Ouro</option>
-                                <option value="Prata">Prata</option>
-                                <option value="Petróleo">Petróleo</option>
-                                <option value="Café">Café</option>
+                                <option value="GC=F">Ouro</option>
+                                <option value="SI=F">Prata</option>
+                                <option value="CL=F">Petróleo</option>
+                                <option value="KC=F">Café</option>
                             </select>
                         </div>
                     </div>
@@ -140,6 +140,13 @@
                     </div>
                 </div>
                 {% endif %}
+
+                {% if not grafico_acoes and not grafico_commoditys %}
+                <div class="alert alert-warning text-center">
+                    Nenhum dado foi encontrado para o período ou seleção especificada.
+                </div>
+                {% endif %}
+
             </div>
         </div>
 
