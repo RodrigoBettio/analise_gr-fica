@@ -1,0 +1,188 @@
+body {
+    background-color: #1f1f1f !important; /* Important sobreescreve os estilos do bootstrap */
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #1f1f1f !important;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -200px; 
+    height: 100%;
+    padding-top: 12px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease;
+}
+
+/* Sidebar aberta */
+.sidebar.open {
+    left: 0; /* Aparece na tela */
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+    text-transform: uppercase;
+}
+
+.sidebar ul li a {
+    color: #f0f0f0;
+    font-weight: 500;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #00bcd4; 
+    border-radius: 8px;
+    padding: 12px 18px;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.6); 
+}
+
+/* Conteúdo quando sidebar aberta */
+.content.shifted {
+    margin-left: 250px; 
+    transition: transform 0.3s ease;
+}
+
+/* Botão de Flecha */
+.toggle-btn {
+    position: fixed;
+    top: 58px; 
+    left: 10px; 
+    transform: translateY(-50%);
+    z-index: 100;
+    cursor: pointer;
+    transition: left 0.3s ease, transform 0.3s ease;
+}
+
+
+/* Flecha */
+.arrow {
+    width: 20px;
+    height: 20px;
+    border-left: 4px solid #00bcd4;
+    border-bottom: 4px solid #00bcd4;
+    transform: rotate(-135deg);
+    transition: transform 0.3s ease;
+}
+
+.toggle-btn.open .arrow {
+    transform: rotate(45deg); 
+    left: 25px; 
+    transition: transform 0.3s ease;
+}
+
+
+/* Conteúdo Principal */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+}
+ 
+#titulo-principal {
+    color: #ffffff !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Header */
+header {
+    background-color: #1f1f1f !important;
+    border: 1px solid #333 !important;
+    border-radius: 12px !important;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #00bcd4;
+}
+
+header .form-control {
+    background-color: #fff !important; /* Fundo branco */
+    color:#1f1f1f ; 
+    border-radius: 20px !important; 
+    padding: 10px 15px;
+}
+
+header .form-control:focus {
+    border-color: #81c1ca !important; 
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.7) !important;
+}
+
+header .btn-outline-light {
+    color: #00bcd4;
+    border-color: #00bcd4;
+    transition: all 0.3s ease-in-out;
+}
+
+header .d-flex a {
+    color: #f0f0f0;
+    transition: color 0.3s;
+}
+
+header .d-flex a:hover {
+    color: #00bcd4;
+}
+
+/* Cards */
+.card {
+    background-color: #1f1f1f !important; 
+    border: 1px solid #333 !important; /* Borda para diferenciar do fundo */
+    border-radius: 12px !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    color: #f0f0f0 !important; 
+}
+
+.card h2 {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.5);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #00bcd4 !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    border-radius: 25px !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0097a7 !important;
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.7) !important;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #f0f0f0;
+    background-color: #1f1f1f !important; 
+    border-top: 2px solid #00bcd4; /* Linha superior no tema */
+}
