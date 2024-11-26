@@ -60,24 +60,37 @@
         <div class="container mt-5">
             <h1 class="text-center mb-4" id="titulo-principal">Comparação de Gráficos</h1>
             <form method="POST" action="/" class="row g-4">
+
                 <!-- Seção para datas -->
-                <!-- Seção para datas -->
-                <div class="col-12">
+                <div class="col-md-6">
                     <div class="card p-4">
                         <h2 class="text-center mb-3"><i class="fas fa-calendar-alt"></i> Data para Comparação</h2>
                         <div class="mb-3">
                             <label for="data_inicial" class="form-label">Data Inicial:</label>
                             <input type="date" name="data_inicial" id="data_inicial" class="form-control" required
-                                value="{{ request.form['data_inicial'] if request.form.get('data_inicial') else '' }}">
+                                value="{{ request.form.get('data_inicial', '') }}">
                         </div>
                         <div class="mb-3">
                             <label for="data_final" class="form-label">Data Final:</label>
                             <input type="date" name="data_final" id="data_final" class="form-control" required
-                                value="{{ request.form['data_final'] if request.form.get('data_final') else '' }}">
+                            value="{{ request.form.get('data_final', '') }}">
                         </div>
                     </div>
                 </div>
 
+                <!-- Seção para intervalo de dados -->
+                <div class="col-md-6">
+                    <div class="card p-4">
+                        <h2 class="text-center mb-3"><i class="fas fa-calendar"></i> Intervalo de Dados</h2>
+                        <div class="mb-3">
+                            <label for="intervalo" class="form-label">Escolha o Intervalo:</label>
+                            <select name="intervalo" id="intervalo" class="form-select">
+                                <option value="mensal">Mensal</option>
+                                <option value="anual">Anual</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Seção para ações -->
                 <div class="col-md-6">
@@ -103,10 +116,21 @@
                         <div class="mb-3">
                             <label for="commodity" class="form-label">Selecione uma commodity:</label>
                             <select name="commodity" id="commodity" class="form-select">
+                                <option value="CL=F">Petróleo Bruto WTI</option>
+                                <option value="BZ=F">Petróleo Brent</option>
+                                <option value="NG=F">Gás Natural</option>
                                 <option value="GC=F">Ouro</option>
                                 <option value="SI=F">Prata</option>
-                                <option value="CL=F">Petróleo</option>
+                                <option value="HG=F">Cobre</option>
+                                <option value="PL=F">Platina</option>
+                                <option value="PA=F">Paládio</option>
+                                <option value="TIO=F">Minério de Ferro</option>
+                                <option value="ZC=F">Milho</option>
+                                <option value="ZS=F">Soja</option>
+                                <option value="ZW=F">Trigo</option>
                                 <option value="KC=F">Café</option>
+                                <option value="SB=F">Açúcar</option>
+                                <option value="CT=F">Algodão</option>
                             </select>
                         </div>
                     </div>

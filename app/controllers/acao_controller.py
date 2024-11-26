@@ -11,19 +11,22 @@ def index():
     commodity = None
     data_inicial = None
     data_final = None
+    intervalo =  None
+    
 
     if request.method == "POST":
         # Verifica se o formulário tem dados para Ação
         acao = request.form.get("acao")
         commodity = request.form.get("commodity")
         data_inicial = request.form.get("data_inicial") 
-        data_final = request.form.get("data_final") 
+        data_final = request.form.get("data_final")
+        intervalo = request.form.get('intervalo')
         
         if acao:
-            grafico_acoes = obter_dados_acoes(acao, data_inicial, data_final) 
+            grafico_acoes = obter_dados_acoes(acao, data_inicial, data_final, intervalo) 
 
         if commodity:
-            grafico_commoditys = obter_dados_commoditys(commodity, data_inicial, data_final)
+            grafico_commoditys = obter_dados_commoditys(commodity, data_inicial, data_final, intervalo)
 
     return render_template(
         "index.html",
