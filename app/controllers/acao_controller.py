@@ -3,7 +3,7 @@ from app.models.acao_model import obter_dados_acoes, obter_dados_commoditys
 
 acao_bp = Blueprint('acao', __name__)
 
-@acao_bp.route("/", methods=["GET", "POST"])
+@acao_bp.route("/comparar-acoes-commodity", methods=["GET", "POST"])
 def index():
     grafico_acoes = None
     grafico_commoditys = None
@@ -29,7 +29,7 @@ def index():
             grafico_commoditys = obter_dados_commoditys(commodity, data_inicial, data_final, intervalo)
 
     return render_template(
-        "index.html",
+        "acao_commodity.html",
         grafico_acoes=grafico_acoes,
         grafico_commoditys=grafico_commoditys,
         acao=acao,
